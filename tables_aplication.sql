@@ -8,14 +8,14 @@ CREATE TABLE pessoa (
 
 CREATE TABLE conta (
   idConta INT NOT NULL AUTO_INCREMENT,
-  pessoaPessoa INT NOT NULL,
+  idPessoa INT NOT NULL,
   saldo DECIMAL NOT NULL,
   limiteSaqueDiario DECIMAL NOT NULL,
   flagAtivo TINYINT(1) NOT NULL DEFAULT 1,
   tipoConta INT NOT NULL,
   dataCriacao DATETIME NOT NULL DEFAULT NOW(),
   PRIMARY KEY (idConta),
-  FOREIGN KEY (pessoaPessoa) REFERENCES pessoa(idPessoa)
+  FOREIGN KEY (idPessoa) REFERENCES pessoa(idPessoa)
 );
 
 CREATE TABLE transacoes (
