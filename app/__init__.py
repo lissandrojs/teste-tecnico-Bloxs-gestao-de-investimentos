@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_migrate import Migrate
-from flask_apispec import FlaskApiSpec, marshal_with, doc, use_kwargs
+from flask_apidoc import ApiDoc
 from flask_sqlalchemy import SQLAlchemy
 import pymysql
 from flask_migrate import Migrate
@@ -13,6 +13,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
+apidoc = ApiDoc(app)
 migrate = Migrate(app, db)
 
 
